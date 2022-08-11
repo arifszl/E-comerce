@@ -1,4 +1,5 @@
-const Product = require("../model/product")
+const Product = require("../model/product");
+const User = require("../model/user");
 
 exports.homeController = async(req, res) => { //change only variable(homeController)
     const products = await Product.find();
@@ -35,4 +36,29 @@ exports.servicesController = (req, res) => {
     res.render("services",
 
         { title: "Services" });
+}
+
+
+exports.postCart = async(req, res) => {
+    const pid = await Product.findById(req.body.productId)
+    const user = await User.findById(req.user._id);
+
+    const cartList = user.items.map((u) => {
+        return u.productId.toString()
+    })
+
+    if (cartList.indexOf(pid._id) !== -1) {
+        return alert("Already added!")
+    }
+
+    User.findOneAndUpdate({ _id: req.user._id }, { $push: { items: pid } },
+        (err, u) => {
+            if (err) {
+                console.log(err)
+            }
+            res.redirect("/cart");
+        })
+
+
+
 }

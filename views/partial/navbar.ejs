@@ -34,7 +34,7 @@
                 <a class="nav-link lnk" href="/add-product">Add-product</a>
             </li>
 
-            <% if(req.session.isLoggedIn) { %>
+            <% if(isAuthenticated) { %>
 
                 <li class="nav-item dropdown active">
                     <a class="nav-link dropdown-toggle lnk" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -43,10 +43,13 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item lnk" href="/cart">Your cart</a>
                         <a class="dropdown-item lnk" href="/order">Orders</a>
-                        <a class="dropdown-item lnk" href="#">Account Setting</a>
+                        <a class="dropdown-item lnk" href="/account">Account Setting</a>
 
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item lnk" href="#">Log out</a>
+                        <form class="form-inline my-2 my-lg-0" action="/logout" method="post">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
+
+                        </form>
                     </div>
                 </li>
                 <% }%>
@@ -58,11 +61,11 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 
         </form>
-        <% if(req.session.isLoggedIn) { %>
+        <% if(isAuthenticated) { %>
 
             <i class="fa-solid fa-user  fa-2xl"></i>
             <% }%>
-                <% if(!req.session.isLoggedIn) { %>
+                <% if(!isAuthenticated) { %>
                     <a class="btn btn-outline-primary my-2 my-sm-0" href="/login">Login</a>
                     <% }%>
     </div>

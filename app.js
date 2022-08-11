@@ -7,7 +7,6 @@
  const authRoutes = require("./routes/auth")
  const session = require("express-session");
  const User = require("./model/user");
- const user = require("./model/user");
 
  const MONGODB_URI = "mongodb://localhost:27017/ecommerce";
  const MongoDBstore = require("connect-mongodb-session")(session);
@@ -36,11 +35,7 @@
 
  //t0 here
 
- app.use(productRoutes)
- app.use(adminRoutes)
- app.use(userRoutes)
- app.use(authRoutes)
-     //this should also fixed
+ //this should also fixed
 
  //organizer session logged
  app.use((req, res, next) => {
@@ -60,6 +55,12 @@
 
      next();
  });
+ //routes
+
+ app.use(productRoutes)
+ app.use(adminRoutes)
+ app.use(userRoutes)
+ app.use(authRoutes)
 
  app.listen(8000, () => {
      console.log("listening at 8000");

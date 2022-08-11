@@ -46,6 +46,16 @@ exports.postLogin = async(req, res) => {
     }
     req.session.isLoggedIn = true;
     req.session.user = u;
-    res.redirect("/")
+    return req.session.save(err => {
+        res.redirect("/")
 
+    })
 }
+
+
+exports.postLogout = (req, res, next) => {
+    req.session.destroy(err => {
+        console.log(err);
+        res.redirect('/');
+    });
+};
