@@ -1,0 +1,31 @@
+img {
+    height: 70px;
+}
+.logo {
+    width: auto;
+    height: 100px;
+background-image: url();
+    background-color: rgb(178, 180, 36);
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    z-index: -1;
+    
+}
+nav {
+
+
+    height: 80px;
+    padding: 5px 14px;
+    border: 2px solid rgb(36, 18, 18);
+    background-color: rgb(21, 243, 113);
+
+
+}
+.lnk{
+    font-size: large;
+    font-weight: 500;
+}

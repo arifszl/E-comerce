@@ -1,0 +1,137 @@
+.container{
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(https://media.istockphoto.com/photos/orange-autumn-background-old-watercolor-paper-texture-painted-marbled-picture-id1286001324?b=1&k=20&m=1286001324&s=612x612&w=0&h=RLyuvy9Dn6_4ezJQBQKD7wf9YRHuRZHNNAyhodgEx0I=);
+    background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: 100% 100%;    
+}
+.container h1{
+    font-size: 50px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(92, 6, 6);
+    
+}
+
+body{
+    background-color: rgb(218, 231, 255);
+}
+.grid{
+    display: grid;
+   grid-template-columns: repeat(6, auto);
+ 
+    column-gap: 5px;
+   
+    margin: 13px;
+    
+    height: 150px;
+}
+.item
+{
+    border: 2px solid black;
+    height: 200px;
+    width: 400px;
+   
+    margin: 13px;
+    display: flex;
+   
+}
+img{
+   height: 100px;
+   width: 100px;
+}
+.caption {
+    display: flex;
+    align-items: center;
+    justify-content:center;
+
+}
+#img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.logo {
+    width: auto;
+    height: 100px;
+background-image: url();
+    background-color: rgb(178, 180, 36);
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    z-index: -1;
+    
+}
+.container1:hover{
+    background-color: darkorange;
+}
+
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: darkred;
+}
+
+nav {
+
+
+    height: 60px;
+    padding: 5px 14px;
+    border: 2px solid rgb(36, 18, 18);
+    background-color: rgb(21, 243, 113);
+
+
+}
+
+.li {
+
+    list-style: none;
+    float: left;
+
+    padding: 3px 14 px;
+    margin: 4px 12px;
+}
+
+.li a {
+    text-decoration: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgb(0, 0, 0);
+}
+
+.li a:hover {
+    border-radius: 10px;
+    color: rgb(226, 0, 0);
+    background-color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: large;
+
+}
+
+.search {
+    float: right;
+    padding: 2px 4px;
+    margin: 3px 5px;
+
+}
+
+#bun {
+
+    border: 2px solid black;
+    border-radius: 14px;
+    background-color: rgb(181, 241, 243);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: black;
+
+}
+
+#s {
+    text-decoration: none;
+
+}

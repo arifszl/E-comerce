@@ -1,0 +1,80 @@
+<%- include("./partial/header")  %>
+    <%- include("./partial/navbar")  %>
+
+        <!-- <form action="/signup" method="post" >
+<p>Name: <input type="text" name="name" id="name" placeholder="Your name"</p>
+    <p class="login" >Email: <input type="email" name="email" id="email" placeholder="enter your email"</p>
+    <p class="login" >Password <input type="password" name="password" id="password" </p>
+    <p class="login" >Confirm Password <input type="password" name="cpassword" id="cpassword" pattern="*****"</p>
+
+    <div>
+    <button type="submit" >Sign up</button>
+</div>
+<div>
+    <p>Already have account ? <a href="/login">login</a></p>
+    
+</div>
+</form> -->
+
+        <section class="vh-100" style="background-color: #9A616D;">
+            <div class="container py-5 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col col-xl-10">
+                        <div class="card" style="border-radius: 1rem;">
+                            <div class="row g-0">
+                                <div class="col-md-6 col-lg-5 d-none d-md-block" style="padding: 25px;">
+                                    <!-- <img src="https://thumbs.dreamstime.com/z/fresh-cherry-water-drops-rustic-wooden-background-fresh-cherries-background-healthy-food-concept-fresh-cherry-water-118332486.jpg"
+                  alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" /> -->
+                                    <h1 class="my-5 display-3 fw-bold ls-tight">Sign up for best<br /><span class="text-primary">Experience with our services!</span> </h1>
+                                </div>
+
+                                <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                                    <div class="card-body p-4 p-lg-5 text-black">
+
+                                        <form action="/signup" method="post">
+
+                                            <div class="d-flex align-items-center mb-3 pb-1">
+                                                <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
+                                                <span class="h1 fw-bold mb-0">SZL GROCERY</span>
+                                            </div>
+
+                                            <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign up to create an account</h5>
+                                            <% if(msg){%>
+                                                <h6 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px; color: red;">
+                                                    <%=msg%>
+                                                </h6>
+                                                <%}%>
+
+                                                    <div class="form-outline mb-4">
+                                                        <input type="name" name="name" id="form2Example17" value="<%=name%>" class="form-control form-control-lg" placeholder="Enter your name" />
+                                                        <label class="form-label" for="form2Example17">Name</label>
+                                                    </div>
+
+                                                    <div class="form-outline mb-4">
+                                                        <input type="email" name="email" id="form2Example17" value="<%=email%>" class="form-control form-control-lg" placeholder="Enter Email Address" />
+                                                        <label class="form-label" for="form2Example17">Email address</label>
+                                                    </div>
+
+                                                    <div class="form-outline mb-4">
+                                                        <input type="password" name="password" value="<%=password%>" id="form2Example27" class="form-control form-control-lg" placeholder="Enter password" />
+                                                        <label class="form-label" for="form2Example27">Password</label>
+                                                    </div>
+
+                                                    <div class="pt-1 mb-4">
+                                                        <button class="btn btn-dark btn-lg btn-block" type="submit">Sign Up</button>
+                                                    </div>
+
+                                                    <a class="small text-muted" href="#!">Forgot password?</a>
+                                                    <p class="mb-5 pb-lg-2" style="color: #393f81;">Already have an account? <a href="/login" style="color: blue">Login</a></p>
+                                                    <a href="#!" class="small text-muted">Terms of use.</a>
+                                                    <a href="#!" class="small text-muted">Privacy policy</a>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>

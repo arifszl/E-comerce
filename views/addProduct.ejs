@@ -1,0 +1,66 @@
+<%- include("./partial/header")  %>
+    <link rel="stylesheet" href="css/add-product.css">
+    <%- include("./partial/navbar")  %>
+
+        <body>
+            <!-- <fieldset >
+    <h1 >Cateogaries form</h1>
+</fieldset>
+    <h2>Details</h2>
+   <form action="/add" method="post">
+    <p class="bor" >Name: <input type="text" name="name" id="name"</p>
+    <p class="bor" >Price <input type="text" name="price" id="price"</p>
+    <p class="bor" >Pictures <input type="file" name="pictures" id="pictures"</p>
+    <div>
+        <textarea cols="72" name="desc" rows="11"> </textarea>
+    </div>
+    <button class="btn btn-success" type="submit" >ADD</button>
+   </form> -->
+            <div class="bod">
+
+
+                <form action="/add" enctype="multipart/form-data" method="post">
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Product name</label>
+                        <input type="name" name="name" class="form-control" id="exampleFormControlInput1" placeholder="Enter product name">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Price</label>
+                        <input type="number" name="price" class="form-control" id="exampleFormControlInput1" placeholder="Enetr price">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlFile1">Insert Image</label>
+                        <input type="file" class="form-control-file" id="exampleFormControlFile1" name="img">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Select Cateogaries</label>
+                        <select class="form-control" id="exampleFormControlSelect1" name="cateogaries">
+        <option value="fruits">Fruits</option>
+        <option value="vegetables">Vegetables</option>
+        <option value="spices">Spices</option>
+        <option value="breakfast">BreakFast</option>
+        <option value="baker">Baker & Biscuit</option>
+        <option value="dryfruit">Dry fruits</option>
+        <option value="colddrink">Cold drink</option>
+        <option value="flour">Flour/aata</option>
+        <option value="rice">Rice</option>
+        <option value="daal">Daal</option>
+        <option value="tea">Tea/Coffee</option>
+        <option value="juices">Juices</option>
+        <option value="clean">Cleaning essential</option>
+        <option value="meat">Meat</option>
+
+      </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Description</label>
+                        <textarea name="desc" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <button class="btn btn-success" type="submit">ADD</button>
+                </form>
+
+
+            </div>
+
+            <%- include("./partial/footer")  %>

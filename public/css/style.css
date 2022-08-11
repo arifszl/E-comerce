@@ -1,0 +1,150 @@
+body {
+    background-color: rgb(255, 255, 255);
+    margin: 0px;
+    padding: 0px;
+}
+
+.logo {
+    width: auto;
+    height: 100px;
+    background-image: url();
+    background-color: rgb(178, 180, 36);
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    z-index: -1;
+}
+
+.container1:hover {
+    background-color: darkorange;
+}
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(199, 70, 70);
+}
+
+nav {
+    height: 60px;
+    padding: 5px 14px;
+    border: 2px solid rgb(36, 18, 18);
+    background-color: rgb(21, 243, 113);
+}
+
+.li {
+    list-style: none;
+    float: left;
+    padding: 3px 14 px;
+    margin: 4px 12px;
+}
+
+.li a {
+    text-decoration: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgb(0, 0, 0);
+}
+
+.li a:hover {
+    border-radius: 10px;
+    color: rgb(226, 0, 0);
+    background-color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: large;
+}
+
+.search {
+    float: right;
+    padding: 2px 4px;
+    margin: 3px 5px;
+}
+
+#bun {
+    border: 2px solid black;
+    border-radius: 14px;
+    background-color: rgb(181, 241, 243);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: black;
+}
+
+#s {
+    text-decoration: none;
+}
+
+input {
+    border-radius: 15px;
+    border-color: black;
+    box-shadow: rgb(197, 104, 104);
+}
+
+img {
+    height: 70px;
+}
+
+.container3 {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.container3 img {
+    height: 250px;
+    width: 150px;
+    object-fit: cover;
+    margin: 50px;
+    padding: 0px;
+    border: 2px solid black;
+    transition-property: all 3s;
+}
+
+.container3 img:hover {
+    height: 330px;
+    width: 200px;
+    border-radius: 15px;
+    transition: all 0.5s;
+}
+
+#head {
+    position: sticky;
+    top: 0px;
+}
+
+.caption {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#link {
+    text-decoration: none;
+    color: rgb(8, 5, 0);
+    font-weight: bold;
+}
+
+#main {
+    border: 2px solid black;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(6, auto);
+    column-gap: 5px;
+}
+
+.item {
+    height: 150px;
+    border: 2px solid black;
+    margin: 13px;
+}
+
+#nave li button {
+    float: left;
+}
+
+#a {
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 50%;
+    background-color: cadetblue;
+}
