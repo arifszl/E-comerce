@@ -5,7 +5,7 @@ const islogin = require("../middleware/islogin");
 
 const router = express.Router() //fixed
 
-router.get("/cart", userController.getcartController)
+
 router.get("/checkout", userController.getcheckoutController)
 router.get("/order", userController.getorderController)
 

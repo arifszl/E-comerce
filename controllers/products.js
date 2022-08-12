@@ -40,25 +40,37 @@ exports.servicesController = (req, res) => {
 
 
 exports.postCart = async(req, res) => {
-    const pid = await Product.findById(req.body.productId)
-    const user = await User.findById(req.user._id);
 
-    const cartList = user.items.map((u) => {
-        return u.productId.toString()
-    })
 
-    if (cartList.indexOf(pid._id) !== -1) {
-        return alert("Already added!")
-    }
+    Product.findById(req.body.productId)
+        .then(product => {
+            return req.user.addCart(product)
+        }).then(result => {
+            res.redirect("/cart")
+        })
+}
+exports.getcartController = async(req, res) => {
 
-    User.findOneAndUpdate({ _id: req.user._id }, { $push: { items: pid } },
-        (err, u) => {
-            if (err) {
-                console.log(err)
-            }
-            res.redirect("/cart");
+    User.findOne({ _id: req.user._id }).populate("cart.items.productId")
+        .exec((err, u) => {
+            if (err) return console.log(err);
+            // return console.log(u.cart.items)
+            res.render("cart", { title: "cart", user: u })
+
+
         })
 
 
 
+}
+
+exports.postremoveQty = async(req, res) => {
+
+
+    Product.findById(req.body.productId)
+        .then(product => {
+            return req.user.removeQty(product)
+        }).then(result => {
+            res.redirect("/cart")
+        })
 }
