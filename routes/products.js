@@ -15,6 +15,6 @@ router.get("/pp/:pid", productController.productDetailController)
 
 router.post("/addcart", islogin, productController.postCart)
 router.post("/removeQty", islogin, productController.postremoveQty)
-
+router.post("/removeFromCart", islogin, productController.postremoveFromCart)
 
 module.exports = router; //fixed

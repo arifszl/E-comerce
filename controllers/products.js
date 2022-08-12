@@ -74,3 +74,14 @@ exports.postremoveQty = async(req, res) => {
             res.redirect("/cart")
         })
 }
+exports.postremoveFromCart = async(req, res) => {
+
+
+    const prodId = req.body.productId;
+    req.user
+        .removeFromCart(prodId)
+        .then(result => {
+            res.redirect('/cart');
+        })
+        .catch(err => console.log(err));
+}
