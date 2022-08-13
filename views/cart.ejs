@@ -56,7 +56,7 @@
                                                 </h5>
                                             </div>
                                             <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                                                <form action="/removeFromCart" method="post"> <input type="hidden" name="productId" value="<%= product.productId._id %>"> <button type="submit" class="text-danger"><i class="fas fa-trash fa-lg"></i></button>
+                                                <form action="/removeFromCart" method="post"> <input type="hidden" name="selecttype" value="cart"> <input type="hidden" name="productId" value="<%= product.productId._id %>"> <button type="submit" class="text-danger"><i class="fas fa-trash fa-lg"></i></button>
                                                 </form>
                                             </div>
                                         </div>
@@ -65,20 +65,13 @@
                                 <% })%>
 
 
-                                    <div class="card mb-4">
-                                        <div class="card-body p-4 d-flex flex-row">
-                                            <div class="form-outline flex-fill">
-                                                <input type="text" id="form1" class="form-control form-control-lg" />
-                                                <label class="form-label" for="form1">Discound code</label>
-                                            </div>
-                                            <button type="button" class="btn btn-outline-warning btn-lg ms-3">Apply</button>
-                                        </div>
-                                    </div>
+
 
                                     <div class="card">
                                         <div class="card-body">
-
-                                            <button type="button" class="btn btn-warning btn-block btn-lg"> <a href="/checkout"> Proceed to Pay</a> </button>
+                                            <form action="/confirmedorder" method="get">
+                                                <button type="submit" class="btn btn-warning btn-block btn-lg">  Proceed to Pay </button>
+                                            </form>
                                         </div>
                                     </div>
 

@@ -60,8 +60,17 @@ exports.getcartController = async(req, res) => {
 
         })
 
+}
+exports.getconfirmedorderController = async(req, res) => { //change only variable(homeController)
+
+    User.findOne({ _id: req.user._id }).populate("cart.items.productId")
+        .exec((err, u) => {
+            if (err) return console.log(err);
+            // return console.log(u.cart.items)
+            res.render("confirmorder", { title: "Confirm Order", user: u })
 
 
+        })
 }
 
 exports.postremoveQty = async(req, res) => {
@@ -78,10 +87,16 @@ exports.postremoveFromCart = async(req, res) => {
 
 
     const prodId = req.body.productId;
+    const type = req.body.selecttype;
     req.user
         .removeFromCart(prodId)
         .then(result => {
-            res.redirect('/cart');
+            if (type === "cart") {
+                res.redirect('/cart');
+            } else {
+                res.redirect('/confirmedorder');
+            }
+
         })
         .catch(err => console.log(err));
 }

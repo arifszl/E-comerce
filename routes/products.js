@@ -12,6 +12,7 @@ router.get("/cart", productController.getcartController)
 router.get("/services", productController.servicesController)
 router.get("/products/:cat", productController.productListController)
 router.get("/pp/:pid", productController.productDetailController)
+router.get("/confirmedorder", productController.getconfirmedorderController)
 
 router.post("/addcart", islogin, productController.postCart)
 router.post("/removeQty", islogin, productController.postremoveQty)

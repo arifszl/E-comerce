@@ -1,12 +1,10 @@
 const User = require("../model/user")
 
 
-exports.getcheckoutController = (req, res) => { //change only variable(homeController)
-    res.render("checkout", { title: "checkout" })
+exports.getaddressController = (req, res) => { //change only variable(homeController)
+    res.render("user/address", { title: "address" })
 }
-exports.getorderController = (req, res) => { //change only variable(homeController)
-    res.render("order", { title: "order" })
-}
+
 
 
 // exports.userController=(req,res)=>{
@@ -31,4 +29,13 @@ exports.getorderController = (req, res) => { //change only variable(homeControll
 
 exports.getAccountController = (req, res) => { //change only variable(homeController)
     res.render("user/account", { title: "account", user: req.user })
+}
+exports.postAddAddress = async(req, res) => {
+    const name = req.body.fname + " " + req.body.lname
+    const adr = req.body.adr
+    const phone = req.body.phone
+
+    req.user.addAddress(adr, name, phone)
+    res.redirect("/account")
+
 }

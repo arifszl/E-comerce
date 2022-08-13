@@ -6,8 +6,8 @@ const islogin = require("../middleware/islogin");
 const router = express.Router() //fixed
 
 
-router.get("/checkout", userController.getcheckoutController)
-router.get("/order", userController.getorderController)
+router.get("/address", userController.getaddressController)
+router.post("/addaddress", userController.postAddAddress)
 
 router.get("/account", islogin, userController.getAccountController)
 

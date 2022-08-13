@@ -24,11 +24,13 @@ const userSchema = new Schema({
                 default: 1
             }
         }]
-    }
-    // products: [{
-    //     type: schema.Types.ObjectId,
-    //     ref: "Product"
-    // }]
+    },
+    userPhoneNo: { type: String },
+    shippingDetail: [{
+        customerName: { type: String },
+        customerPhoneNo: { type: Number },
+        customerAdr: { type: String }
+    }]
 
 
 })
@@ -64,7 +66,12 @@ userSchema.methods.removeQty = function(product) {
 
     })
     if (this.cart.items[productIndex].qty - 1 === 0) {
-        alert("can not remove further")
+
+        const updatedCartItems = this.cart.items.filter(item => {
+            return item.productId.toString() !== product._id.toString();
+        });
+        this.cart.items = updatedCartItems;
+        return this.save();
     }
     let newQty = 1;
     const updatedCartItems = [...this.cart.items] //spread operator
@@ -90,5 +97,16 @@ userSchema.methods.removeFromCart = function(productId) {
     this.cart.items = updatedCartItems;
     return this.save();
 };
+
+userSchema.methods.addAddress = function(adr, name, phone) {
+    const updatedshippingDetail = [...this.shippingDetail];
+    updatedshippingDetail.push({
+        customerName: name,
+        customerPhoneNo: phone,
+        customerAdr: adr
+    })
+    this.shippingDetail = updatedshippingDetail;
+    return this.save();
+}
 
 module.exports = mongoose.model("User", userSchema)
