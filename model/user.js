@@ -108,5 +108,10 @@ userSchema.methods.addAddress = function(adr, name, phone) {
     this.shippingDetail = updatedshippingDetail;
     return this.save();
 }
+userSchema.methods.clearCart = function() {
+    this.cart = { items: [] };
+    return this.save();
+}
+
 
 module.exports = mongoose.model("User", userSchema)

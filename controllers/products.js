@@ -1,3 +1,4 @@
+const Order = require("../model/order");
 const Product = require("../model/product");
 const User = require("../model/user");
 
@@ -73,6 +74,29 @@ exports.getconfirmedorderController = async(req, res) => { //change only variabl
         })
 }
 
+exports.getorderController = async(req, res) => { //change only variable(homeController)
+
+    Order.find({ user: req.user._id }).populate("products.productId")
+        .exec((err, o) => {
+            if (err) return console.log(err);
+            // return console.log(u.cart.items)
+            res.render("order", { title: "Order", user: req.user, orders: o })
+
+
+        })
+}
+exports.gettrackOrderController = async(req, res) => { //change only variable(homeController)
+
+    User.findOne({ _id: req.user._id }).populate("cart.items.productId")
+        .exec((err, u) => {
+            if (err) return console.log(err);
+            // return console.log(u.cart.items)
+            res.render("trackOrder", { title: "Order Tracking", user: u })
+
+
+        })
+}
+
 exports.postremoveQty = async(req, res) => {
 
 
@@ -99,4 +123,34 @@ exports.postremoveFromCart = async(req, res) => {
 
         })
         .catch(err => console.log(err));
+}
+
+
+exports.postConfirmOrder = async(req, res) => {
+
+
+    const addressId = req.body.addressId;
+    const totalPrice = req.body.totalPrice;
+
+    const address = req.user.shippingDetail.filter(s => s._id.toString() === addressId)
+        //  return console.log(address)
+
+    const o = new Order({
+        products: req.user.cart.items,
+        user: req.user,
+        totalPrice: totalPrice,
+        shippingDetail: address[0]
+    })
+    o.save(result => {
+        req.user
+            .clearCart()
+            .then(result => {
+
+                res.redirect('/order');
+
+
+            })
+            .catch(err => console.log(err));
+    })
+
 }

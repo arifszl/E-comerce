@@ -7,6 +7,8 @@
  const authRoutes = require("./routes/auth")
  const session = require("express-session");
  const User = require("./model/user");
+ const error404 = require("./controllers/error404");
+
 
  const MONGODB_URI = "mongodb://localhost:27017/ecommerce";
  const MongoDBstore = require("connect-mongodb-session")(session);
@@ -61,6 +63,8 @@
  app.use(adminRoutes)
  app.use(userRoutes)
  app.use(authRoutes)
+
+ app.use(error404.get404);
 
  app.listen(8000, () => {
      console.log("listening at 8000");

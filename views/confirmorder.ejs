@@ -89,18 +89,19 @@
                                                 </div>
 
                                                 <div>
-                                                    <label for="cars">Choose a Address:</label>
-                                                    <% if(user.shippingDetail.length>0){%>
-                                                        <select>
+                                                    <form action="/confirmorder" method="post">
+                                                        <label for="cars">Choose a Address:</label>
+
+                                                        <select name="addressId" required>
                                                  
-                                                       
+                                                                <option value="">None</option>
                                                                 <% user.shippingDetail.forEach(ship=>{  %>
                                                     <option value="<%=ship._id%>"><%=ship.customerAdr%></option>
                                                     <%})%>
                                                      </select>
-                                                        <% }%>
+
                                                 </div>
-                                                <a class="btn btn-success btn-block" href="/address" style="color: #eee;">
+                                                <a title="Plz add new address" class="btn btn-success btn-block" href="/address" style="color: #eee;">
                                                     Add Address
                                                 </a>
 
@@ -127,14 +128,14 @@
                                                         <%=totalPrice+shippingCharge%>
                                                     </p>
                                                 </div>
-
-                                                <button type="button" class="btn btn-info btn-block btn-lg">
+                                                <input type="hidden" name="totalPrice" value="<%=totalPrice+shippingCharge%>">
+                                                <button type="submit" class="btn btn-info btn-block btn-lg">
                           <div class="d-flex justify-content-between">
                             <span>$<%=totalPrice+shippingCharge%></span>
                             <span>Checkout <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
                           </div>
                         </button>
-
+                                                </form>
                                             </div>
                                         </div>
 
