@@ -22,5 +22,5 @@ router.post("/removeQty", islogin, productController.postremoveQty)
 router.post("/removeFromCart", islogin, productController.postremoveFromCart)
 router.post("/confirmorder", islogin, productController.postConfirmOrder)
 router.post("/cancelorder", islogin, productController.postcancelorder)
-
+router.post("/invoice", islogin, productController.postinvoice)
 module.exports = router; //fixed
