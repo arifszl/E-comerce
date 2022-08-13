@@ -24,5 +24,6 @@ const orderSchema = new Schema({
         customerPhoneNo: { type: Number },
         customerAdr: { type: String }
     }
-})
+}, { timestamps: true })
+
 module.exports = mongoose.model("Order", orderSchema)

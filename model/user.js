@@ -32,8 +32,7 @@ const userSchema = new Schema({
         customerAdr: { type: String }
     }]
 
-
-})
+}, { timestamps: true })
 
 userSchema.methods.addCart = function(product) {
     const productIndex = this.cart.items.findIndex(cp => {

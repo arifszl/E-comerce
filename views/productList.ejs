@@ -28,7 +28,7 @@
                                 </p>
                             </div>
                             <div class="card__actions">
-                                <a href="/pp/<%= product._id %>" class="btn">Details</a>
+                                <a href="/productdetail?pid=<%= product._id %>" class="btn">Details</a>
                                 <%- include("./user/addcart",{product:product})  %>
                             </div>
                         </article>

@@ -40,6 +40,15 @@
                                                 <h3>Total Price $
                                                     <%=order.totalPrice%>
                                                 </h3>
+                                                <div class="d-flex flex-row align-items-center">
+                                                    <a href="">Invoice</a>
+                                                </div>
+                                                <div class="d-flex flex-row align-items-center">
+                                                    <a href="/trackorder?oid=<%=order._id%>">Track Order</a>
+                                                </div>
+                                                <form action="/cancelorder" method="post">
+                                                    <input type="hidden" name="oId" value="<%= order._id %>">
+                                                    <button type="submit" style="color: #050404;"><i class="fa-solid fa-xmark"></i></button><span>Cancel Order</span> </form>
                                                 <% order.products.forEach(product=>{  %>
                                                     <div class="card mb-3">
                                                         <div class="card-body">
@@ -66,17 +75,9 @@
                                                                             <%=product.qty *product.productId.price %>
                                                                         </h5>
                                                                     </div>
-                                                                    <form action="/removeFromCart" method="post">
-                                                                        <input type="hidden" name="productId" value="<%= product.productId._id %>">
-                                                                        <input type="hidden" name="selecttype" value="order">
-                                                                        <button type="submit" style="color: #050404;"><i class="fa-solid fa-xmark"></i></button><span>Cancel Order</span> </form>
+
                                                                 </div>
-                                                                <div class="d-flex flex-row align-items-center">
-                                                                    <a href="">Invoice</a>
-                                                                </div>
-                                                                <div class="d-flex flex-row align-items-center">
-                                                                    <a href="/trackOrder">Track Order</a>
-                                                                </div>
+
                                                             </div>
                                                         </div>
                                                     </div>

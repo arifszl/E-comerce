@@ -1,27 +1,26 @@
 <%- include("./partial/header")  %>
 
 
+    <%- include("./partial/navbar")  %>
 
 
 
-    <main class="centered">
-        <h1>
-            <%= product.productName %>
-        </h1>
-        <hr>
-        <div class="image">
-            <img src="http://localhost:8000/image/<%= product.imgurl %>" alt="<%= product.productName %>">
-        </div>
-        <h2>
-            <%= product.price %>
-        </h2>
-        <p>
-            <%= product.description %>
-        </p>
-        <form action="/cart" method="post">
-            <button class="btn" type="submit">Add to Cart</button>
-            <input type="hidden" name="productId" value="<%= product._id %>">
-        </form>
-    </main>
+        <main class="centered">
+            <h1>
+                <%= product.productName %>
+            </h1>
+            <hr>
+            <div class="image">
+                <img src="http://localhost:8000/image/<%= product.imgurl %>" alt="<%= product.productName %>">
+            </div>
+            <h2>
+                <%= product.price %>
+            </h2>
+            <p>
+                <%= product.description %>
+            </p>
+            <%- include("./user/addcart",{product:product})  %>
 
-    <%- include("./partial/footer")  %>
+        </main>
+
+        <%- include("./partial/footer")  %>

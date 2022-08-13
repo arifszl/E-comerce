@@ -1,6 +1,7 @@
 const Order = require("../model/order");
 const Product = require("../model/product");
 const User = require("../model/user");
+const mongoose = require("mongoose");
 
 exports.homeController = async(req, res) => { //change only variable(homeController)
     const products = await Product.find();
@@ -14,14 +15,15 @@ exports.contactController = (req, res) => {
 
 exports.productDetailController = async(req, res) => {
 
-    const prodId = req.params.pid;
-    return console.log(prodId)
+    const prodId = req.query.pid;
+    //   return console.log(prodId)
     Product.findById(prodId)
         .then(product => {
             res.render("productDetail", {
                 product: product,
-                title: product.title,
-                path: '/products'
+                title: product.productName,
+                path: '/products',
+                user: req.user
             });
         })
         .catch(err => console.log(err));
@@ -86,12 +88,13 @@ exports.getorderController = async(req, res) => { //change only variable(homeCon
         })
 }
 exports.gettrackOrderController = async(req, res) => { //change only variable(homeController)
+    const oId = req.query.oid
 
-    User.findOne({ _id: req.user._id }).populate("cart.items.productId")
-        .exec((err, u) => {
+    Order.findById(oId).populate("products.productId")
+        .exec((err, o) => {
             if (err) return console.log(err);
-            // return console.log(u.cart.items)
-            res.render("trackOrder", { title: "Order Tracking", user: u })
+            // return console.log(o)
+            res.render("trackOrder", { title: "Order Tracking", user: req.user, order: o })
 
 
         })
@@ -120,6 +123,19 @@ exports.postremoveFromCart = async(req, res) => {
             } else {
                 res.redirect('/confirmedorder');
             }
+
+        })
+        .catch(err => console.log(err));
+}
+exports.postcancelorder = async(req, res) => {
+
+
+    const oId = req.body.oId;
+    Order.findByIdAndRemove(oId)
+        .then(result => {
+
+            res.redirect('/order');
+
 
         })
         .catch(err => console.log(err));
