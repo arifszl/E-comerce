@@ -299,3 +299,16 @@ exports.postinvoice = async(req, res) => { //change only variable(homeController
 //         );
 //     }
 // }
+exports.getsearch = async(req, res) => {
+    const search = req.query.k;
+    const rgx = (pattern) => new RegExp(`.*${pattern}.*`);
+    const searchRgx = rgx(search);
+    const products = await Product.find({
+        $or: [
+            { productName: { $regex: searchRgx, $options: "i" } },
+            { cateogaries: { $regex: searchRgx, $options: "i" } },
+        ],
+    })
+    res.render("search", { title: "Order Tracking", user: req.user, products: products })
+
+}

@@ -15,7 +15,7 @@ router.get("/productdetail", productController.productDetailController)
 router.get("/confirmedorder", islogin, productController.getconfirmedorderController)
 router.get("/order", islogin, productController.getorderController)
 router.get("/trackorder", islogin, productController.gettrackOrderController)
-
+router.get("/search", productController.getsearch)
 
 router.post("/addcart", islogin, productController.postCart)
 router.post("/removeQty", islogin, productController.postremoveQty)
@@ -23,4 +23,5 @@ router.post("/removeFromCart", islogin, productController.postremoveFromCart)
 router.post("/confirmorder", islogin, productController.postConfirmOrder)
 router.post("/cancelorder", islogin, productController.postcancelorder)
 router.post("/invoice", islogin, productController.postinvoice)
+
 module.exports = router; //fixed
