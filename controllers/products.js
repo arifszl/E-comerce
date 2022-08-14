@@ -34,7 +34,7 @@ exports.productDetailController = async(req, res) => {
 }
 
 exports.productListController = async(req, res) => {
-    const cat = req.params.cat;
+    const cat = req.query.cat
     const products = await Product.find({ cateogaries: cat });
     res.render("productList", { title: "productList", prods: products });
 }

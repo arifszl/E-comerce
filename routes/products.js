@@ -10,7 +10,7 @@ router.get("/contact", productController.contactController)
 
 router.get("/cart", islogin, productController.getcartController)
 router.get("/services", productController.servicesController)
-router.get("/products/:cat", productController.productListController)
+router.get("/products", productController.productListController)
 router.get("/productdetail", productController.productDetailController)
 router.get("/confirmedorder", islogin, productController.getconfirmedorderController)
 router.get("/order", islogin, productController.getorderController)
