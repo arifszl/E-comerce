@@ -1,11 +1,12 @@
 img {
     height: 70px;
 }
+
 .logo {
     width: auto;
     height: 100px;
-background-image: url();
-    background-color: rgb(178, 180, 36);
+    background-image: url();
+    background-color: rgb(144, 145, 58);
     margin: 0px;
     padding: 0px;
     display: flex;
@@ -13,19 +14,16 @@ background-image: url();
     justify-content: center;
     border: 2px solid black;
     z-index: -1;
-    
 }
+
 nav {
-
-
     height: 80px;
     padding: 5px 14px;
-    border: 2px solid rgb(36, 18, 18);
-    background-color: rgb(21, 243, 113);
-
-
+    border: 2px solid rgb(0, 0, 0);
+    background-color: rgb(71, 249, 160);
 }
-.lnk{
+
+.lnk {
     font-size: large;
     font-weight: 500;
 }
