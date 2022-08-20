@@ -59,12 +59,13 @@
 
         <form class="form-inline my-2 my-lg-0" method="get" action="/search">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="k">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <button style="padding:3px;  margin: 5px; ;" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 
         </form>
         <% if(isAuthenticated) { %>
 
-            <i class="fa-solid fa-user  fa-2xl"></i>
+            <!-- <i class="fa-solid fa-user  fa-2xl"></i> -->
+            <a href="/account"> <img style="height: 50px;padding: 5px ;" src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle" height="10" alt="Black and White Portrait of a Man" loading="lazy" /> </a>
             <% }%>
                 <% if(!isAuthenticated) { %>
                     <a class="btn btn-outline-primary my-2 my-sm-0" href="/login">Login</a>
