@@ -60,17 +60,3 @@ exports.postLogout = (req, res, next) => {
         res.redirect('/');
     });
 };
-
-exports.postMail = async(req, res) => {
-
-    mail.sendMail({
-        to: "maumadhuban31@gmail.com",
-        subject: "Hello there",
-        html: "<h1>Sign up with our website </h1>"
-    })
-    res.redirect("/")
-}
-
-exports.getMailController = (req, res) => { //change only variable(homeController)
-    res.render("mail", { title: "Mail", msg: null, name: null, password: null, email: null })
-}
